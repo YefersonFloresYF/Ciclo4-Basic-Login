@@ -11,6 +11,12 @@ const connection = mysql.createConnection({
 });
 
 const app = express();
+const router = express.Router();
+const emailValidator = require ('deep-email-validator');
+
+async function isEmailValid(email){
+	return emailValidator.validate(email)
+}
 
 app.use(session({
 	secret: 'secret',
@@ -25,6 +31,41 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.get('/', function(request, response) {
 	// Render login template
 	response.sendFile(path.join(__dirname + '/login.html'));
+});
+
+// http://localhost:3000/
+app.get('/register', function(request, response) {
+	// Render login template
+		if (request.method == 'POST'){
+			response.sendFile(path.join(__dirname + '/main.html'));
+		}
+	response.sendFile(path.join(__dirname + '/register.html'));
+});
+
+// router.post('/check', async function(req, res, next) {
+// 	const {email, password} = req.body;
+    
+// 	if (!email || !password){
+// 	  return res.status(400).send({
+// 		message: "Email or password missing."
+// 	  })
+// 	}
+  
+// 	const {valid, reason, validators} = await isEmailValid(email);
+  
+// 	if (valid) return res.sendFile(path.join(__dirname + '/main.html'));
+// 	// res.send({message: "OK"});
+  
+// 	return res.status(400).send({
+// 	  message: "Please provide a valid email address.",
+// 	  reason: validators[reason].reason
+// 	})
+  
+// });
+
+app.get('/main', function(request, response) {
+	// Render login template
+	response.sendFile(path.join(__dirname + '/main.html'));
 });
 
 // http://localhost:3000/auth

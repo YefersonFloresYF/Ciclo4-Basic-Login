@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario de registro</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/style.css"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  </head>
+  <body>
+    <div class="login">
+    <!-- <section class="content">
+      {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+      {% endfor %}
+    </section> -->
+
+    <h1>Plataforma de envio de paquetes</h1>
+    <form name="formRegistro" method="post" action="/main.html">
+        <!-- <label for="nombre"> -->
+            <!-- font awesome icon -->
+            <!-- Nombre -->
+            <!-- <i class="fas fa-user">Nombre</i> -->
+        <!-- </label> -->
+        <p>Nombre <input type="text" id="nombre" name="nombre" /></p>
+      <!-- <label for="username">
+        font awesome icon
+        <i class="fas fa-user"></i>
+      </label> -->
+      <p>Usuario <input type="text" id="username" name="username" /></p>
+      <label for="username">
+        <!-- font awesome icon -->
+        <i class="fas fa-envelope"></i>
+      </label>
+      <input type="text" id="correo" name="correo" maxlength="100" />
+      <label for="password">
+        <i class="fas fa-lock"></i>
+      </label>
+      <input type="password" id="password" name="password" />
+        <!-- <img src="{{ url_for('static', filename='images/view.png') }}" 
+        onmouseover="showPassword('password');" onmouseout="hidePassword('password');" /> -->
+
+      <p>
+        <input type="checkbox" name="condiciones" /> Declaro haber leido y
+        acepto las condiciones generales del programa y la normativa sobre
+        protección de datos
+      </p>
+
+      <input type="submit" value="Enviar">
+    </form>
+    </div>
+    <div style="text-align: center">
+        <a href="/">Login</a>
+    </div>
+  </body>
+</html>
